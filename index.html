@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #fff;
+            color: #24292e;
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        a{
+            color: inherit;
+        }
+
+        .grid-form {
+            position: fixed;
+            height: 90px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1)
+        }
+
+        .grid-form form {
+            margin: 16px;
+        }
+
+        .ph {
+            height: 12vh;
+            margin-bottom: 2vh;
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+
+        body {
+            height: 4000px;
+            background-position: 50% 100px;
+            background-repeat: no-repeat;
+            background-image: url('./assets/bg.jpg');
+            background-size: 1481px 2557px; 
+        }
+
+        .grid-wrap {
+            position: fixed;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            bottom: 0;
+        }
+        .grid-style {
+            padding: 1em;
+            display: block;
+            white-space: pre-line;
+            width: 90%;
+            max-width: 600px;
+            max-height: 600px;
+            height: 90%;
+            overflow: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: #ffffff;
+        }
+
+        .code-wrap {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            visibility: hidden;
+            opacity: 0;
+            transition: 200ms;
+        }
+
+        .code-wrap:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .code-wrap-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            text-decoration: none;
+            color: #999999;
+            font-size: 32px;
+            line-height: 1;
+        }
+
+        .code-wrap-close:hover {
+            color: #ffffff;
+        }
+
+        .code-wrap-download {
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- code-area -->
+    <div id="codeWrap" class="code-wrap">
+        <style contenteditable class="grid-style" id="gridStyle"></style>
+        <a href="##" class="code-wrap-close">&times;</a>
+        <button id="downloadCodeBtn" type="button" class="code-wrap-download">下载代码</button>
+    </div>
+    <!-- code-area -->
+
+    <!-- grid-form    -->
+    <div class="grid-form">
+        <form id="gridForm">
+            <fieldset>
+                <legend>构建栅格</legend>                
+                <label>
+                    <strong>主视区宽度</strong>
+                    <input name="viewWidth" type="number" value="980">
+                    px
+                </label>
+                <label>
+                    <strong>列间距</strong>
+                    <input name="gutter" type="number" value="28">
+                    px
+                </label>
+                <label>
+                    <strong>列数</strong>
+                    <input name="colNum" type="number" value="12">
+                </label>
+                <label>
+                    <strong>是否自适应</strong>
+                    <input name="isFix" type="checkbox" checked value="1">
+                </label>
+                <button type="reset">重置</button>
+                <a href="#codeWrap">查看代码</a>
+            </fieldset>
+        </form>
+    </div>
+    <!-- grid-form -->
+
+    <!-- grid-wrap -->
+    <div class="grid-wrap">
+        <div class="g_wrap">
+            <div class="ph"></div>
+        </div>
+        <!-- .g_row>.g_col_1*12>.ph -->
+        <div class="g_row">
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_1">
+                <div class="ph"></div>
+            </div>
+        </div>
+        <!-- .g_row>.g_col_2*6>.ph -->
+        <div class="g_row">
+            <div class="g_col_2 g_col_m_6 g_col_s_12">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_2 g_col_m_6 g_col_s_12">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_2 g_col_m_6 g_col_s_12">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_2 g_col_m_6 g_col_s_12">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_2 g_col_m_6 g_col_s_12">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_2 g_col_m_6 g_col_s_12">
+                <div class="ph"></div>
+            </div>
+        </div>
+        <!-- .g_row>.g_col_3*4>.ph -->
+        <div class="g_row">
+            <div class="g_col_3">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_3">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_3">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_3">
+                <div class="ph"></div>
+            </div>
+        </div>
+        <!-- .g_row>.g_col_4*3>.ph -->
+        <div class="g_row">
+            <div class="g_col_4">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_4">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_4">
+                <div class="ph"></div>
+            </div>
+        </div>
+        <!-- .g_row>.g_col_4*3>.ph -->
+        <div class="g_row">
+            <div class="g_col_6">
+                <div class="ph"></div>
+            </div>
+            <div class="g_col_6">
+                <div class="ph"></div>
+            </div>
+        </div>
+    </div>
+    <!-- grid-wrap -->
+
+    <script src="./assets/blobAndSaveAs.min.js"></script>
+    <script>
+        // 基于数据构建样式
+        (function () {
+            function Obj(opt) {
+                // 列数
+                this.colNum = parseInt(opt.colNum) || 12;
+
+                // 可视区域宽度
+                this.viewWidth = parseInt(opt.viewWidth) || 1176;
+
+                // 列间距
+                this.gutter = parseInt(opt.gutter);
+
+                // 是否是固定
+                this.isFix = opt.isFix;
+
+                // 列前缀
+                this.colPre = "g_col_";
+                this.medias = [{
+                    name: 'g_col_m_',
+                    value: '768'
+                }, {
+                    name: 'g_col_s_',
+                    value: '576'
+                }];
+                this.init();
+            };
+
+            Obj.prototype.init = function () {
+                var rowStyle = this.getBaseStyle();
+                var colStyle = this.getColStyle(this.colPre);
+                var mediaColStyle = this.getMediaColStyle();
+                var gridStyle = rowStyle + colStyle + mediaColStyle;
+                document.getElementById("gridStyle").innerHTML = gridStyle;
+            };
+
+            Obj.prototype.getMediaColStyle = function () {
+                var medias = this.medias;
+                var ret = '';
+                for (var i = 0, len = medias.length; i < len; i++) {
+                    var media = medias[i];
+                    ret += `
+                        @media screen and (max-width: ${media.value}px) {${this.getColStyle(media.name)}}
+                    `;
+                }
+                return ret;
+            };
+
+            Obj.prototype.getColStyle = function (colPre) {
+                if (!colPre) {
+                    return;
+                }
+                var ret = '\n';
+                for (var i = 1, len = this.colNum + 1; i < len; i++) {
+                    var width = this.isFix ? i / this.colNum * (this.viewWidth + this.gutter) + 'px' : (i / this.colNum * 100) + '%';
+                    ret += '.' + colPre + i + '{ width: ' + width + ' ; }\n';
+                }
+                return ret;
+            };
+
+            Obj.prototype.getBaseStyle = function () {
+                var wrapWidth = this.viewWidth + 'px';
+                var rowWidth = this.viewWidth + this.gutter + 'px';
+                var halfGutter = this.gutter / 2 + 'px';
+
+                var ret = `                    
+                        .g_wrap{
+                            ${this.isFix ? 'width' : 'max-width'}: ${wrapWidth};
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                        .g_row{
+                            ${this.isFix ? 'width' : 'max-width'}: ${rowWidth};
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+                        .g_row:after {
+                            display: table;
+                            content: '';
+                            clear: both;
+                        }
+                        
+                        .g_row > [class*="${this.colPre}"]{
+                            padding-left: ${halfGutter};
+                            padding-right: ${halfGutter};
+                            float: left;
+                            display: inline;
+                            box-sizing: border-box;
+                        }
+
+                        @media screen and (max-width: ${rowWidth}) {
+                            .g_wrap {
+                                margin-left: ${halfGutter};
+                                margin-right: ${halfGutter};
+                            }
+                        }
+                        `;
+
+                return ret;
+            };
+            window.Grid = Obj;
+        })();
+
+        (function () {
+
+            // 默认的配置
+            var defaultOpt = null;
+
+            // 表单
+            var gridForm = document.getElementById('gridForm');
+
+
+            var buildForm = function (form) {
+                var opt = {
+                    colNum: form.colNum.value,
+                    viewWidth: form.viewWidth.value,
+                    gutter: form.gutter.value,
+                    isFix: !form.isFix.checked
+                };
+                // 首次缓存配置
+                if (!defaultOpt) {
+                    defaultOpt = opt;
+                }
+                new Grid(opt);
+            };
+
+            // 重置的时候触发
+            gridForm.onreset = function () {
+                new Grid(defaultOpt);
+                return true;
+            };
+
+            // 首次触发
+            buildForm(gridForm);
+
+            gridForm.addEventListener('change', function (e) {
+                buildForm(gridForm);
+            }, false);
+
+            document.getElementById('downloadCodeBtn').onclick = function (e) {
+                e.preventDefault();
+                var data = document.getElementById('gridStyle').innerText;
+                saveAs(
+                    new Blob(
+                        [data], {
+                            type: "text/plain;charset=" + document.characterSet
+                        }
+                    ), "grid.css"
+                );
+            };
+        })();
+    </script>
+</body>
+</html>
