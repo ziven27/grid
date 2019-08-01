@@ -12,6 +12,7 @@
             colNum: form.colNum.value,
             viewWidth: form.viewWidth.value,
             gutter: form.gutter.value,
+            margin: form.margin.value,
             isFix: !form.isFix.checked
         };
         // 首次缓存配置
@@ -25,7 +26,7 @@
     // 重置的时候触发
     gridForm.onreset = function () {
         new GridStyle(defaultOpt);
-        new GridHtml('gridWrap', opt);
+        new GridHtml('gridWrap', defaultOpt);
         return true;
     };
 

@@ -10,6 +10,9 @@
         // 列间距
         this.gutter = parseInt(opt.gutter);
 
+        // 两翼留白
+        this.margin=parseInt(opt.margin);
+
         // 是否是固定
         this.isFix = opt.isFix;
 
@@ -61,6 +64,9 @@
         var wrapWidth = this.viewWidth + 'px';
         var rowWidth = this.viewWidth + this.gutter + 'px';
         var halfGutter = this.gutter / 2 + 'px';
+        var wrapMargin = this.margin +'px';
+        var rowMargin = this.margin -this.gutter/2 + 'px';
+        var windowWidth= this.viewWidth + this.margin *2 +'px';
 
         var ret = `                    
                 .g_wrap{
@@ -87,10 +93,14 @@
                     box-sizing: border-box;
                 }
 
-                @media screen and (max-width: ${rowWidth}) {
+                @media screen and (max-width: ${windowWidth}) {
                     .g_wrap {
-                        margin-left: ${halfGutter};
-                        margin-right: ${halfGutter};
+                        margin-left: ${wrapMargin};
+                        margin-right: ${wrapMargin};
+                    }
+                    .g_row{
+                        margin-left: ${rowMargin};
+                        margin-right: ${rowMargin};
                     }
                 }
                 `;
